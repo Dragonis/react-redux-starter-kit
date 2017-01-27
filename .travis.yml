@@ -1,19 +1,24 @@
-sudo: true
-language: node_js
-node_js:
-  - "6"
-
-cache:
-  directories:
-    - node_modules
-
-install:
-  - npm install -g yarn
-  - yarn install
-
-script:
-  - npm run deploy:dev
-  - npm run deploy:prod
-
-after_success:
-  - npm run codecov
+{
+  "sudo": false,
+  "language": "node_js",
+  "node_js": "6",
+  "cache": {
+    "directories": [
+      "node_modules"
+    ]
+  },
+  "install": [
+    "npm install -g yarn",
+    "yarn install"
+  ],
+  "script": [
+    "npm run deploy:dev",
+    "npm run deploy:prod"
+  ],
+  "after_success": [
+    "npm run codecov"
+  ],
+  "group": "stable",
+  "dist": "precise",
+  "os": "linux"
+}
